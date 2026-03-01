@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use either::Either;
 use smodel::{
-    attrs::{DoForAttrs, DoForAttrsStrategy, Expression, ProcedureArgumentId},
+    attrs::{DoForAttrs, DoForAttrsStrategy, Expression, List, ProcedureArgumentId},
     blocks::BlockWrapper,
 };
 
@@ -12,13 +12,13 @@ struct Graph<'a> {
 
 impl<'a> DoForAttrsStrategy<'a> for Graph<'a> {
     type Inputs = ();
-    type Outputs = (Vec<&'a smodel::Id>, Vec<&'a smodel::Id>);
+    type Outputs = (Vec<&'a smodel::Id>, Vec<&'a List>);
     type Error = std::convert::Infallible;
 }
 
 pub(crate) fn add_edges_from_block<'a>(
     parameter_edges: &mut HashMap<&'a smodel::Id, Vec<&'a smodel::Id>>,
-    read_list_edges: &mut HashMap<&'a smodel::Id, Vec<&'a smodel::Id>>,
+    read_list_edges: &mut HashMap<&'a smodel::Id, Vec<&'a List>>,
     next_block_edges: &mut HashMap<&'a smodel::Id, Option<&'a smodel::Id>>,
     parent_block_edges: &mut HashMap<&'a smodel::Id, Option<&'a smodel::Id>>,
     from_block: &'a BlockWrapper,
@@ -109,7 +109,7 @@ impl<'a> DoForAttrs<'a, Graph<'a>> for attrs::Expression {
             Expression::Var(_) => {}
             Expression::Lit(_) => {}
             Expression::Lis(list) => {
-                outputs.1.push(list.id());
+                outputs.1.push(list);
             }
         }
 

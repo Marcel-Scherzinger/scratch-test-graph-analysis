@@ -13,7 +13,7 @@ fn main() {
             let list_name = doc
                 .targets()
                 .iter()
-                .flat_map(|target| target.lists().get(list))
+                .flat_map(|target| target.lists().get(list.id()))
                 .next()
                 .map(|l| l.0.name())
                 .unwrap();

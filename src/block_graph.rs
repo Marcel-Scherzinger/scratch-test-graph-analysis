@@ -1,4 +1,8 @@
 use std::collections::HashMap;
+use smodel::{
+    attrs::List,
+    blocks::{AsOpcodeUnit, BlockWrapper},
+};
 
 use crate::graph_construction::add_edges_from_block;
 
@@ -6,7 +10,7 @@ use crate::graph_construction::add_edges_from_block;
 pub struct BlockGraph<'a> {
     doc: &'a smodel::ProjectDoc,
     parameter_edges: HashMap<&'a smodel::Id, Vec<&'a smodel::Id>>,
-    read_list_edges: HashMap<&'a smodel::Id, Vec<&'a smodel::Id>>,
+    read_list_edges: HashMap<&'a smodel::Id, Vec<&'a List>>,
     next_block_edges: HashMap<&'a smodel::Id, Option<&'a smodel::Id>>,
     parent_block_edges: HashMap<&'a smodel::Id, Option<&'a smodel::Id>>,
 }
