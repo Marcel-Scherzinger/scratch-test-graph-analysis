@@ -269,15 +269,18 @@ name = "scratch-test-graph-analysis"
 version = "0.1.0"
 dependencies = [
  "derive-getters",
+ "derive_more",
  "either",
+ "itertools",
  "scratch-test-model",
  "scratch-test-value",
+ "thiserror",
 ]
 
 [[package]]
 name = "scratch-test-model"
 version = "0.1.0"
-source = "git+https://github.com/Marcel-Scherzinger/scratch-test-model#535aea2d18e82137343060493bccaba8b87caa41"
+source = "git+https://github.com/Marcel-Scherzinger/scratch-test-model#0825a881c821bbfd9e79375455b181a701a7d980"
 dependencies = [
  "const-str",
  "derive-getters",
@@ -296,7 +299,7 @@ dependencies = [
 [[package]]
 name = "scratch-test-model-proc"
 version = "0.1.0"
-source = "git+https://github.com/Marcel-Scherzinger/scratch-test-model#535aea2d18e82137343060493bccaba8b87caa41"
+source = "git+https://github.com/Marcel-Scherzinger/scratch-test-model#0825a881c821bbfd9e79375455b181a701a7d980"
 dependencies = [
  "convert_case 0.11.0",
  "proc-macro2",

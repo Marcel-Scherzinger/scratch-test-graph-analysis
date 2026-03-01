@@ -5,7 +5,10 @@ edition = "2024"
 
 [dependencies]
 derive-getters = "0.5.0"
+derive_more = { version = "2.1.1", features = ["deref"] }
 either = "1.15.0"
+itertools = "0.14.0"
+thiserror = "2.0.18"
 
 [dependencies.svalue]
 git = "https://github.com/Marcel-Scherzinger/scratch-test-value"
